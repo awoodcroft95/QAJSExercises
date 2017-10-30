@@ -1,20 +1,46 @@
 <script>
-function fizzBuzz(){
-    for(var i = 1; i <= 100; i++){
-        if(i % 3 == 0 && i % 5 == 0){
-            console.log("FizzBuzz");
-        }
-        else if (i % 3 == 0){
-            console.log("Fizz");
-        }
-        else if (i % 5 == 0){
-            console.log("Buzz");
-        }
-        else{
-            console.log(i);
+    function fizzBuzz(countTo, div3, div5) {
+        for (var i = 1; i <= countTo; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                console.log(div3 + div5);
+            }
+            else if (i % 3 == 0) {
+                console.log(div3);
+            }
+            else if (i % 5 == 0) {
+                console.log(div5);
+            }
+            else {
+                console.log(i);
+            }
         }
     }
+
+    fizzBuzz(68, "Fuzz", "Bizz");
+
+    function iteration4(input) {
+        var count = 0;
+        while (input != 1) {
+            if (input % 3 === 0) {
+                input = input / 3;
+                console.log("Diveded by 3 " + input);
+            } else if (input % 3 === 1) {
+                input--;
+                input = input / 3;
+                console.log("Subtracted 1, Divided by 3 " + input);
+            } else if (input % 3 === 2) {
+                input++;
+                input = input / 3;
+                console.log("Added 1, Divided by 3 " + input);
+            }
+            count++;
+        }
+        console.log("It took " + count + " iterations.");
+    }
+
+iteration4(23);
+
+function strings4(inputString){
 }
 
-fizzBuzz();
 </script>
