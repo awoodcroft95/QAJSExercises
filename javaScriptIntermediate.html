@@ -1,46 +1,89 @@
-<script>
-    function fizzBuzz(countTo, div3, div5) {
-        for (var i = 1; i <= countTo; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                console.log(div3 + div5);
-            }
-            else if (i % 3 == 0) {
-                console.log(div3);
-            }
-            else if (i % 5 == 0) {
-                console.log(div5);
-            }
-            else {
-                console.log(i);
+<html>
+
+<head>
+
+    <script>
+        function fizzBuzz(countTo, div3, div5) {
+            for (var i = 1; i <= countTo; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    console.log(div3 + div5);
+                }
+                else if (i % 3 == 0) {
+                    console.log(div3);
+                }
+                else if (i % 5 == 0) {
+                    console.log(div5);
+                }
+                else {
+                    console.log(i);
+                }
             }
         }
-    }
 
-    fizzBuzz(68, "Fuzz", "Bizz");
+        fizzBuzz(68, "Fuzz", "Bizz");
 
-    function iteration4(input) {
-        var count = 0;
-        while (input != 1) {
-            if (input % 3 === 0) {
-                input = input / 3;
-                console.log("Diveded by 3 " + input);
-            } else if (input % 3 === 1) {
-                input--;
-                input = input / 3;
-                console.log("Subtracted 1, Divided by 3 " + input);
-            } else if (input % 3 === 2) {
-                input++;
-                input = input / 3;
-                console.log("Added 1, Divided by 3 " + input);
+        function iteration4(input) {
+            var count = 0;
+            while (input != 1) {
+                if (input % 3 === 0) {
+                    input = input / 3;
+                    console.log("Diveded by 3, Current value: " + input);
+                } else if (input % 3 === 1) {
+                    input--;
+                    input = input / 3;
+                    console.log("Subtracted 1, Divided by 3, Current value: " + input);
+                } else if (input % 3 === 2) {
+                    input++;
+                    input = input / 3;
+                    console.log("Added 1, Divided by 3, Current value: " + input);
+                }
+                count++;
             }
-            count++;
+            console.log("It took " + count + " iterations.");
         }
-        console.log("It took " + count + " iterations.");
-    }
 
-iteration4(23);
+        iteration4(300);
 
-function strings4(inputString){
-}
+        function strings4(inputString) {
+            var tripleCount = 0;
+            for (var j = 0; j < inputString.length; j++) {
+                var testChar = inputString.charAt(j);
+                if (inputString.charAt(j + 1) === testChar & inputString.charAt(j + 2) === testChar) {
+                    tripleCount++;
+                }
+            }
+            console.log(tripleCount);
+        }
 
-</script>
+        strings4("xxxabyyyycd");
+
+        // DOM1 Task
+
+        function createParaElement() {
+            var p = document.createElement("p");
+            p.setAttribute("id", "para1");
+            document.appendChild(p);
+        }
+
+        function changeText(){
+            p = document.getElementById("para1");
+            p.innerHTML = document.getElementById("input1").value;
+        }
+
+        function deletePara(){
+            document.getElementById("para1");
+        }
+    </script>
+
+</head>
+
+<body>
+<input type="text" name="input" id ="input1" value="">
+<br>
+<button type="button" onclick="changeText()">Click to change the text.</button>
+<br>
+<button type="button" onclick="deletePara()">Click to delete paragraph.</button>
+</body>
+
+
+</html>
