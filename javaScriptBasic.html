@@ -1,0 +1,107 @@
+<script>
+    //alert("Hello World!");
+
+    var newPerson;
+
+    var variable1 = "This is a variable.";
+    //alert(variable1);
+    console.log(variable1);
+    document.write(variable1);
+
+    function square(num1){
+        return num1**2;
+    }
+
+    document.write(square(4));
+
+    function sum(num1, num2, num3){
+        return num1 + num2 + num3;
+    }
+
+    document.write(sum(1,2,3));
+
+    var personObject = {name: "Anthony", age: 22, occupation: "Trainee Consultant"};
+    //alert(personObject.name + personObject.age + personObject.occupation);
+    personObject.name = "Anthony Woodcroft";
+    //alert(personObject.name + personObject.age + personObject.occupation);
+
+    function buttonPress(){
+        personObject.age+= 1;
+        alert(personObject.name + personObject.age + personObject.occupation);
+    }
+
+    function createPerson(name, age, occupation){
+        var newPerson = {};
+        newPerson.name = name;
+        newPerson.age = age;
+        newPerson.occupation = occupation;
+        return newPerson;
+    }
+
+    function getInput(){
+        var name = document.getElementById("nameIN").value;
+        var age = document.getElementById("age").value;
+        var occ = document.getElementById("occ").value;
+        newPerson = createPerson(name, age, occ);
+        console.log(newPerson.name + newPerson.age + newPerson.occupation);
+    }
+
+    var string1 = "He said \"My name is Elliott\" ";
+
+    string1 = string1.toUpperCase();
+    console.log(string1);
+
+    var string2 = "Hello";
+    var num4 = 5;
+    var string3 = string2 + num4;
+    console.log(string3);
+
+    var stringArr = ["abc", "rst", "xyz"];
+    console.log(stringArr);
+    stringArr.push("hij");
+    console.log(stringArr);
+    stringArr.pop();
+    console.log(stringArr);
+
+    function checkAge(){
+        if(newPerson){
+            if(newPerson.age >= 20 && newPerson.age <= 40){
+                alert("Person is between 20 and 40.");
+            }
+            else {
+                alert("Person is not between 20 and 40.");
+            }
+        }
+        else {
+            alert("Create a person please.");
+        }
+    }
+
+    for(var i = 1; i < 11; i++){
+        if(i % 2 == 0){
+            console.log(i);
+        }
+    }
+
+
+</script>
+
+
+<button type="button" onclick="buttonPress()">Click to increase age.</button>
+<br><br>
+
+
+Name:<br>
+<input type="text" name="name" id="nameIN" value="">
+<br>Age:<br>
+<input type="number" name="age" id="age" value="">
+<br>Occupation:<br>
+<input type="text" name="occupation" id ="occ" value="">
+<br>
+<button type="button" onclick="getInput()">Click To Confirm Person</button>
+
+<br>
+
+<button type="button" onclick="checkAge()">Check age of the person</button>
+
+
