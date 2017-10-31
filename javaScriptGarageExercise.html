@@ -1,15 +1,76 @@
 <html>
 
 <head>
-    <script>
-        'use strict';
-
-    </script>
+    <link rel="stylesheet" type="text/css" href="garage.css">
+    <script src=garageScript.js type="text/javascript"></script>
 </head>
 
 <body>
-    <input type="" name="" value="">
+    <h1>Garage</h1>
+    <br>
+    <div id="carsToAdd">
+        <h4>Possible Cars to Add</h4>
+        <select name="cars" id="carSelectIn" onmouseup="changeLicencePlateText('genLicenceFromListIn', 'carSelectIn')">
+            <option value="CS15 NET">Volvo</option>
+            <option value="BG98 KJF">Saab</option>
+            <option value="MJ26 LAS">Fiat</option>
+            <option value="AD34 HBR">Audi</option>
+        </select>
+        <br> Licence Plate of Selected Car
+        <p id='genLicenceFromListIn'></p>
+    </div>
+    <div id="carsToRemove">
+        <h4>Possible Cars to Remove</h4>
+        <select name="cars" id="carSelectOut" onmouseup="changeLicencePlateText('genLicenceFromListOut', 'carSelectOut')">
+            <option value="CS15 NET">Volvo</option>
+            <option value="BG98 KJF">Saab</option>
+            <option value="MJ26 LAS">Fiat</option>
+            <option value="AD34 HBR">Audi</option>
+        </select>
+        <br> Licence Plate of Selected Car
+        <p id='genLicenceFromListOut'></p>
+    </div>
 
+
+
+    <div>
+        <h3>Check In</h3>
+        Licence Plate
+        <br>
+        <input type="text" name="inLicencePlate" value="">
+        <br>
+        <button type="button" onclick="">Confirm Check In</button>
+        <br>
+    </div>
+    <div>
+        <h3>Check Out</h3>
+        Licence Plate
+        <br>
+        <input type="text" name="outLicencePlate" value="">
+        <br>
+        <button type="button" onclick="">Confirm Check Out</button>
+        <br>
+    </div>
+    <div>
+        <h3>Output</h3>
+        <button type="button">Output Garage Contents</button>
+    </div>
 </body>
 
 </html>
+
+<!-- Car Name
+        <br>
+        <input type="text" name="carName" value="">
+        <br> Car Licence Plate
+        <br>
+        <input type="text" name="carLicence" value="">
+        <br> Num of Wheels
+        <br>
+        <input type="number" name="carWheels" value="">
+        <br> Number of Faults
+        <br>
+        <input type="number" name="carFaults" value="">
+        <br>
+        <button type="button" onclick="">Confirm Check In</button>
+        <br> -->
