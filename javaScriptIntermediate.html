@@ -62,27 +62,35 @@
         function createParaElement() {
             var p = document.createElement("p");
             p.setAttribute("id", "para1");
-            document.appendChild(p);
+            //document.getElementById("div1").appendChild(p);
+            var element = document.getElementById("div1");
+            var child = document.getElementById("input1");
+            element.insertBefore(p, child);
         }
 
-        function changeText(){
-            p = document.getElementById("para1");
-            p.innerHTML = document.getElementById("input1").value;
+        function changeText() {
+            para = document.getElementById("para1");
+            para.innerHTML = document.getElementById("input1").value;
         }
 
-        function deletePara(){
-            document.getElementById("para1");
+        function deletePara() {
+            var parent = document.getElementById("div1");
+            parent.removeChild(document.getElementById("para1"));
         }
     </script>
 
 </head>
 
 <body>
-<input type="text" name="input" id ="input1" value="">
-<br>
-<button type="button" onclick="changeText()">Click to change the text.</button>
-<br>
-<button type="button" onclick="deletePara()">Click to delete paragraph.</button>
+    <div id="div1">
+        <input type="text" name="input" id="input1" value="">
+        <br>
+        <button type="button" onclick="createParaElement()">Click to create a new paragraph</button>
+        <br>
+        <button type="button" onclick="changeText()">Click to change the text.</button>
+        <br>
+        <button type="button" onclick="deletePara()">Click to delete paragraph.</button>
+    </div>
 </body>
 
 
