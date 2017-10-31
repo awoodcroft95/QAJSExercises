@@ -25,30 +25,30 @@
                     superHeroes[key].forEach(function (element) {
                         //element = the hero curruntly being worked on
                         let heroDivName = document.createElement("div");
-                            heroDivName.setAttribute("id", element.name+"Div")
-                            document.getElementById("herosDiv").appendChild(heroDivName);
+                        heroDivName.setAttribute("id", element.name + "Div")
+                        document.getElementById("herosDiv").appendChild(heroDivName);
                         for (let heroKey in element) {
                             let heroInfo;
-                            
+
                             if (heroKey === "name") {
                                 heroInfo = document.createElement("h2");
                                 heroInfo.innerHTML = heroKey + ": " + element[heroKey];
-                                document.getElementById(element.name+"Div").appendChild(heroInfo);
+                                document.getElementById(element.name + "Div").appendChild(heroInfo);
                             } else if (heroKey === "powers") {
                                 heroInfo = document.createElement("h3");
                                 heroInfo.innerHTML = "Powers";
-                                document.getElementById(element.name+"Div").appendChild(heroInfo);
+                                document.getElementById(element.name + "Div").appendChild(heroInfo);
                                 //add new heading - Powers
 
                                 let powerList = document.createElement("ul");
-                                powerList.setAttribute("id", element.name+count);
-                                document.getElementById(element.name+"Div").appendChild(powerList);
+                                powerList.setAttribute("id", element.name + count);
+                                document.getElementById(element.name + "Div").appendChild(powerList);
                                 //add new unordered list
 
                                 element[heroKey].forEach(function (powerElement) {
                                     let power = document.createElement("li");
                                     power.innerHTML = powerElement;
-                                    document.getElementById(element.name+count).appendChild(power);
+                                    document.getElementById(element.name + count).appendChild(power);
                                     //add powers to the unordered list
                                 }, this);
 
@@ -56,7 +56,7 @@
                             } else {
                                 heroInfo = document.createElement("p");
                                 heroInfo.innerHTML = heroKey + ": " + element[heroKey];
-                                document.getElementById(element.name+"Div").appendChild(heroInfo);
+                                document.getElementById(element.name + "Div").appendChild(heroInfo);
                             }
                         }
                     }, this);
