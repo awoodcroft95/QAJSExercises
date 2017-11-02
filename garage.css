@@ -9,3 +9,9 @@
     float: left;
 }
 
+#pageDivider {
+    background-color: black;
+}
+body {
+    border-color: black;
+}

@@ -1,5 +1,6 @@
 "use strict";
 let garageContents = [];
+let notGarage = [];
 
 function carMaker(name, licencePlate, wheelNumber, numberOfFaults) {
     let it = {};
@@ -108,4 +109,17 @@ function carToSelection(car, carString, dropDownId) {
     option.setAttribute("value", carString);
     option.innerHTML = car.name;
     dropDown.appendChild(option);
+}
+
+function makeNewCar() {
+    let newCarName = document.getElementById("carMakeIn").value;
+    let newCarPlate = document.getElementById("licencePlateIn").value;
+    let newCarWheels = document.getElementById("numWheelsIn").value;
+    let newCarFaults = document.getElementById("faultsIn").value;
+    addCarToGarage(newCarName, newCarPlate, newCarWheels, newCarFaults, notGarage);
+}
+
+function addNewCarToOptions() {
+    let newCar = notGarage.pop();
+    carToSelection(newCar, carToString(newCar), "carSelectIn");
 }

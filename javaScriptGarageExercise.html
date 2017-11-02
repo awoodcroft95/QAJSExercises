@@ -10,56 +10,84 @@
 </head>
 
 <body>
-    <h1>Garage</h1>
-    <br>
-    <div id="carsToAdd">
-        <h4>Possible Cars to Add</h4>
-        <select name="cars" id="carSelectIn" onmouseup="changeLicencePlateText('genLicenceFromListIn', 'carSelectIn')">
-            <option value="Volvo-CS15 NET-4-3">Volvo</option>
-            <option value="Saab-BG98 KJF-4-5">Saab</option>
-            <option value="Fiat-MJ26 LAS-4-2">Fiat</option>
-            <option value="Audi-AD34 HBR-3-1">Audi</option>
-        </select>
-        <br> Licence Plate of Selected Car
-        <p id='genLicenceFromListIn'></p>
-    </div>
-    <div id="carsToRemove">
-        <h4>Possible Cars to Remove</h4>
-        <select name="cars" id="carSelectOut" onmouseup="changeLicencePlateText('genLicenceFromListOut', 'carSelectOut')">
-        </select>
-        <br> Licence Plate of Selected Car
-        <p id='genLicenceFromListOut'></p>
-    </div>
-
-
-
-    <div id="carsToAdd">
-        <h3>Check In</h3>
-        Licence Plate
+    <section>
+        <h1>Garage</h1>
         <br>
-        <button type="button" onclick="checkInCar()">Confirm Check In</button>
-        <br>
-    </div>
-    <div id="carsToRemove">
-        <h3>Check Out</h3>
-        Licence Plate
-        <br>
-        <button type="button" onclick="checkOutCar()">Confirm Check Out</button>
-        <br>
-    </div>
-    <div>
-        <h3>Output</h3>
-        <button type="button" onclick="outputContents()">Output Garage Contents</button>
-        <div id="output">
-
+        <div id="carsToAdd">
+            <h4>Possible Cars to Add</h4>
+            <select name="cars" id="carSelectIn" onmouseup="changeLicencePlateText('genLicenceFromListIn', 'carSelectIn')">
+                <option value="Volvo-CS15 NET-4-3">Volvo</option>
+                <option value="Saab-BG98 KJF-4-5">Saab</option>
+                <option value="Fiat-MJ26 LAS-4-2">Fiat</option>
+                <option value="Audi-AD34 HBR-3-1">Audi</option>
+            </select>
+            <br> Licence Plate of Selected Car
+            <p id='genLicenceFromListIn'></p>
         </div>
-    </div>
-    <div>
-        <H3>Calculate Bill</H3>
-        <p>Select car from checkout list.</p>
-        <button onclick="billToPage()">Calculate bill</button>
-        <div id="billOutput"></div>
-    </div>
+        <div id="carsToRemove">
+            <h4>Possible Cars to Remove</h4>
+            <select name="cars" id="carSelectOut" onmouseup="changeLicencePlateText('genLicenceFromListOut', 'carSelectOut')">
+            </select>
+            <br> Licence Plate of Selected Car
+            <p id='genLicenceFromListOut'></p>
+        </div>
+
+
+
+        <div id="carsToAdd">
+            <h3>Check In</h3>
+            Licence Plate
+            <br>
+            <button type="button" onclick="checkInCar()">Confirm Check In</button>
+            <br>
+        </div>
+        <div id="carsToRemove">
+            <h3>Check Out</h3>
+            Licence Plate
+            <br>
+            <button type="button" onclick="checkOutCar()">Confirm Check Out</button>
+            <br>
+        </div>
+        <div>
+            <h3>Output</h3>
+            <button type="button" onclick="outputContents()">Output Garage Contents</button>
+            <div id="output">
+
+            </div>
+        </div>
+        <div>
+            <H3>Calculate Bill</H3>
+            <p>Select car from checkout list.</p>
+            <button onclick="billToPage()">Calculate bill</button>
+            <div id="billOutput"></div>
+        </div>
+        <br>
+    </section>
+    <hr>
+    <section>
+        <br>
+        <h1>Car Creator</h1>
+        <br>
+        <div>
+            Car Make
+            <br>
+            <input type="text" id="carMakeIn">
+            <br> Car Licence Plate
+            <br>
+            <input type="text" id="licencePlateIn">
+            <br> Number of Wheels
+            <br>
+            <input type="number" id="numWheelsIn">
+            <br> Number of Faults
+            <br>
+            <input type="number" id="faultsIn">
+            <br>
+            <button type="button" id="carCreatorConfirm" onclick="makeNewCar()">Confirm Car Creation</button>
+            <br> Add most recent car to 'Possible Cars to Add'
+            <br>
+            <button type="button" id="newCarToDrop" onclick="addNewCarToOptions()">Add Car</button>
+        </div>
+    </section>
 </body>
 
 </html>
