@@ -47,9 +47,7 @@ function checkInCar() {
     let input = dropDown.value;
     let inputArray = spiltString(input);
     addCarToGarage(inputArray[0], inputArray[1], inputArray[2], inputArray[3], garageContents);
-    //remove the added car from the drop down list.
     dropDown.remove(dropDown.selectedIndex);
-    //add car to check out drop down
     carToSelection(garageContents[garageContents.length - 1], input, "carSelectOut");
 }
 
