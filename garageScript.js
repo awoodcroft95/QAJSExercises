@@ -125,3 +125,47 @@ function addNewCarToOptions() {
     let newCar = notGarage.pop();
     carToSelection(newCar, carToString(newCar), "carSelectIn");
 }
+
+function commandWord(){
+    let input = document.getElementById("cliIn").value;
+    let inputWords = input.split("")
+    let firstWord = inputWords[0];
+    if (firstWord === "create"){
+        if (inputWords[1] === "car"){
+            addCarToGarage(inputWords[], inputWords[], inputWords[], inputWords[], notGarage);
+        }
+        else {
+            //output please enter a valid command
+        }
+    } else if (firstWord === "output"){
+        let outputStr = ""
+        garageContents.forEach(function (element) {
+            outputStr += `${element.name} ${element.licencePlate} 
+            `;
+        }, this);
+        //outputStr to cli
+    } else if (firstWord === "check"){
+        if(inputWords[1] === "in"){
+            notGarage.forEach(function (element){
+                if (element.licencePlate === inputWords[2]){
+                    //compare licencePlate given with what's in the notGarage
+                    //move car from notGarage to Garage
+                } else {
+                    //this car doens't exist in the world, check you entered the licence plate correctly
+                }
+            });
+        } else if (inputWords[1] === "out") {
+            garageContents.forEach(function (element){
+                if (element.licencePlate === inputWords[2]){
+                    //move car from Garage to notGarage
+                } else {
+                    //this car doens't exist in the garage, check you entered the licence plate correctly
+                }
+            })
+        } else {
+            //output "not a valid command word, select either to check in or check out
+        }
+    } else {
+        //output "not a valid command word"
+    }
+}
