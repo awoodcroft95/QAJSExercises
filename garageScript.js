@@ -27,9 +27,11 @@ function spiltString(inputString){
 }
 
 function outputContents(){
+    let outputStr = ""
     garageContents.forEach(function(element) {
-        console.log(element.name + " " + element.licencePlate);
+        outputStr += element.name + " " + element.licencePlate + "<br>";
     }, this);
+    outputToPage(outputStr);
 }
 
 function checkInCar(){
@@ -45,8 +47,20 @@ function checkOutCar(){
     let inputArray = spiltString(input);
     garageContents.forEach(function(element) {
         if (element.licencePlate === inputArray[1]){
-            index = garageContents.indexOf(element);
-            array.splice(index, 1);
+            let index = garageContents.indexOf(element);
+            garageContents.splice(index, 1);
         }
     }, this);
+}
+
+function outputToPage(outputStr){
+    let divOut = document.getElementById("output");
+    let para;
+    if (para = document.getElementById("outputText")){
+        divOut.removeChild(para);
+    }
+    para = document.createElement("p");
+    para.setAttribute("id", "outputText");
+    para.innerHTML = outputStr;
+    divOut.appendChild(para);
 }
