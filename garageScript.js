@@ -82,13 +82,15 @@ function outputToPage(divID, paraID, outputStr) {
 
 function calculateBill(car) {
     let bill = 25;
-    if (car.wheelNumber <= 3) {
-        bill += (4 - car.wheelNumber) * 30;
+    if (car) {
+        if (car.wheelNumber <= 3) {
+            bill += (4 - car.wheelNumber) * 30;
+        }
+        if (car.numberOfFaults > 0) {
+            bill += (20 * car.numberOfFaults);
+        }
+        return bill;
     }
-    if (car.numberOfFaults > 0) {
-        bill += (20 * car.numberOfFaults);
-    }
-    return bill;
 }
 
 function billToPage() {
