@@ -26,10 +26,6 @@
     <div id="carsToRemove">
         <h4>Possible Cars to Remove</h4>
         <select name="cars" id="carSelectOut" onmouseup="changeLicencePlateText('genLicenceFromListOut', 'carSelectOut')">
-            <option value="Volvo-CS15 NET-4-3">Volvo</option>
-            <option value="Saab-BG98 KJF-4-5">Saab</option>
-            <option value="Fiat-MJ26 LAS-4-2">Fiat</option>
-            <option value="Audi-AD34 HBR-3-1">Audi</option>
         </select>
         <br> Licence Plate of Selected Car
         <p id='genLicenceFromListOut'></p>
@@ -57,6 +53,12 @@
         <div id="output">
 
         </div>
+    </div>
+    <div>
+        <H3>Calculate Bill</H3>
+        <p>Select car from checkout list.</p>
+        <button onclick="billToPage()">Calculate bill</button>
+        <div id="billOutput"></div>
     </div>
 </body>
 

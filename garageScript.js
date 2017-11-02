@@ -1,7 +1,7 @@
 "use strict";
 let garageContents = [];
 
-function carMaker(name, licencePlate, wheelNumber, numberOfFaults){
+function carMaker(name, licencePlate, wheelNumber, numberOfFaults) {
     let it = {};
     it.name = name;
     it.licencePlate = licencePlate;
@@ -10,57 +10,104 @@ function carMaker(name, licencePlate, wheelNumber, numberOfFaults){
     return it;
 }
 
-function addCarToGarage(name, licencePlate, wheelNumber, numberOfFaults, garage){
+function addCarToGarage(name, licencePlate, wheelNumber, numberOfFaults, garage) {
     let car = carMaker(name, licencePlate, wheelNumber, numberOfFaults);
     garage.push(car);
 }
 
-function changeLicencePlateText(element, list){
+function changeLicencePlateText(element, list) {
     let elem = document.getElementById(list);
     let carInfo = elem.options[elem.selectedIndex].value;
     let carInfoArray = spiltString(carInfo);
     document.getElementById(element).innerHTML = carInfoArray[1];
 }
 
-function spiltString(inputString){
+function spiltString(inputString) {
     return inputString.split("-");
 }
 
-function outputContents(){
+function carToString(car) {
+    let carString = "";
+    for (let key in car) {
+        carString += car[key] + "-";
+    }
+    return carString;
+}
+
+function outputContents() {
     let outputStr = ""
-    garageContents.forEach(function(element) {
+    garageContents.forEach(function (element) {
         outputStr += element.name + " " + element.licencePlate + "<br>";
     }, this);
-    outputToPage(outputStr);
+    outputToPage("output", "outputText", outputStr);
 }
 
-function checkInCar(){
-    let input = document.getElementById("carSelectIn").value;
+function checkInCar() {
+    let dropDown = document.getElementById("carSelectIn");
+    let input = dropDown.value;
     let inputArray = spiltString(input);
     addCarToGarage(inputArray[0], inputArray[1], inputArray[2], inputArray[3], garageContents);
-
     //remove the added car from the drop down list.
+    dropDown.remove(dropDown.selectedIndex);
+    //add car to check out drop down
+    carToSelection(garageContents[garageContents.length - 1], input, "carSelectOut");
 }
 
-function checkOutCar(){
-    let input = document.getElementById("carSelectOut").value;
+function checkOutCar() {
+    let dropDown = document.getElementById("carSelectOut")
+    let input = dropDown.value;
     let inputArray = spiltString(input);
-    garageContents.forEach(function(element) {
-        if (element.licencePlate === inputArray[1]){
+    let car;
+    garageContents.forEach(function (element) {
+        if (element.licencePlate === inputArray[1]) {
+            car = element;
             let index = garageContents.indexOf(element);
             garageContents.splice(index, 1);
         }
     }, this);
+    dropDown.remove(dropDown.selectedIndex);
+    carToSelection(car, input, "carSelectIn");
 }
 
-function outputToPage(outputStr){
-    let divOut = document.getElementById("output");
+function outputToPage(divID, paraID, outputStr) {
+    let divOut = document.getElementById(divID);
     let para;
-    if (para = document.getElementById("outputText")){
+    if (para = document.getElementById(paraID)) {
         divOut.removeChild(para);
     }
     para = document.createElement("p");
-    para.setAttribute("id", "outputText");
+    para.setAttribute("id", paraID);
     para.innerHTML = outputStr;
     divOut.appendChild(para);
+}
+
+function calculateBill(car) {
+    let bill = 25;
+    if (car.wheelNumber <= 3) {
+        bill += (4 - car.wheelNumber) * 30;
+    }
+    if (car.numberOfFaults > 0) {
+        bill += (20 * car.numberOfFaults);
+    }
+    return bill;
+}
+
+function billToPage() {
+    let car;
+    let selection = document.getElementById("carSelectOut").value;
+    let inputArray = spiltString(selection);
+    garageContents.forEach(function (element) {
+        if (element.licencePlate === inputArray[1]) {
+            car = element;
+        }
+    }, this);
+    outputToPage("billOutput", "billPara", "£" + calculateBill(car));
+}
+
+function carToSelection(car, carString, dropDownId) {
+    let dropDown = document.getElementById(dropDownId);
+    let option = document.createElement("option");
+    option.setAttribute("value", carString);
+    option.innerHTML = car.name;
+    dropDown.appendChild(option);
 }
